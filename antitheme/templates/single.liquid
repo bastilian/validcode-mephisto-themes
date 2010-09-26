@@ -1,0 +1,35 @@
+<div class="post">
+ <h3>{{ article | link_to_article }}</h3>
+ {{ article.body }}
+ <p class="data"><span class="meta">{{ article | link_to_comments }}</span><span class="auth">Posted by {{ article.author.login }} on
+{{ article.published_at | format_date: 'stub' }}</span></p> 
+ </div>
+<ul class="comment_list">
+{% for comment in comments %}
+<li class="graybox" id="comment-{{ comment.id }}"> 
+	<strong>
+	{{ comment.author }}
+	</strong> 
+  	said:<br />
+	{{ comment.body }}
+</li>
+{% endfor %}
+</ul>
+ {{ commentform }}
+
+<div class="comment-box">
+      {% commentform %}
+      <h3 class="formhead">Post your comment</h3>
+      <dl>
+        <dt><label class="text" for="comment_author">Name</label></dt>
+        <dd>{{ form.name }}</dd>
+        <dt><label class="text" for="comment_author_email">Email</label></dt>
+        <dd>{{ form.email }}</dd>
+        <dt><label class="text" for="comment_author_url">Website</label></dt>
+        <dd>{{ form.url }}</dd>
+        <dt><label for="comment_body">What it be?</label></dt>
+        <dd><textarea id="comment_body" name="comment[body]" rows="6" cols="40"></textarea></dd>
+      </dl>
+      <p class="btns"><input type="submit" value="Add comment" /></p>
+      {% endcommentform %}
+</div>

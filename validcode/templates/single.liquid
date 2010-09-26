@@ -1,0 +1,50 @@
+<div class="post">
+  <h2>{{ article | link_to_article }}</h2>
+
+<div class="float_left">
+{{ article | link_to_comments }} 
+</div>
+<div class="float_right">{{ article.published_at | strftime: "%d %b %y" }}
+</div>
+<div class="clear"> </div>
+
+
+<div class="body">
+  {{ article.body }}
+</div>
+<div class="meta"> </div>
+<div class="clear"> </div>
+</div>
+
+{% for comment in comments %}
+<div id="comment-{{ comment.id }}" class="comment">
+  <a name="comment-{{ comment.id }}"></a>
+<h2>
+Comment by:<br />
+{{ comment.author }}
+</h2>  
+<div class="body">
+	{{ comment.body }}
+</div>
+</div>
+{% endfor %}
+ {{ commentform }}
+
+<div id="article-comment-form" class="comment">
+<div id="comment-form">
+      {% commentform %}
+      <h3 class="formhead">Post your comment</h3>
+      <dl>
+        <dt><label class="text" for="comment_author">Name</label></dt>
+        <dd>{{ form.name }}</dd>
+        <dt><label class="text" for="comment_author_email">Email</label></dt>
+        <dd>{{ form.email }}</dd>
+        <dt><label class="text" for="comment_author_url">Website</label></dt>
+        <dd>{{ form.url }}</dd>
+        <dt><label for="comment_body">What it be?</label></dt>
+        <dd><textarea id="comment_body" name="comment[body]" rows="6" cols="40"></textarea></dd>
+      </dl>
+      <p class="btns"><input type="submit" value="Add comment" /></p>
+      {% endcommentform %}
+    </div>
+</div>

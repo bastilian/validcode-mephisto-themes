@@ -1,0 +1,15 @@
+{% for article in articles %}
+<div class="post">
+<h2>{{ article | link_to_article }}</h2>
+{{ article | link_to_comments }} 
+<div class="float_right">{{ article.published_at | strftime: "%d %b %y" }}
+</div>
+<div class="clear"> </div>
+<div class="body">
+  {{ article.body }}
+</div>
+<div class="meta"> </div>
+<div class="clear"> </div>
+</div>
+{% endfor %}
+

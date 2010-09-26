@@ -1,0 +1,9 @@
+{% for article in articles %}
+ <div class="post">
+  <h3>{{ article | link_to_article }}</h3>
+  {{ article.body }}
+  <p class="data"><span class="meta">{{ article | link_to_comments }}</span><span class="auth">Posted by {{ article.author.login }} on
+ {{ article.published_at | format_date: 'stub' }}</span></p> 
+  </div>
+{% endfor %}
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  {% head %} 
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <title>{{ site.title }}</title>
+   <meta name="author" content="Sebastian Graessl" />
+   <meta name="description" content="The Blog personal Blog of Sebastian Graessl" />
+   <meta name="keywords" content="ruby rubyonrails web development design apple" />
+   {{ head.feed }}
+   {{ 'style' | stylesheet }}
+  {% endhead %}
+
+<body>
+<div id="header">
+   <div id="left"></div>
+   <div id="right">
+  <div id="search"> 
+	<form action="/search" id="sform" method="post" name="sform">
+    <label for="q">search:</label>
+            <input type="text" id="q" name="q" value="{{ search_string }}" size="10" /><input type="submit" value="search" />
+         </form></div>
+  </div>
+   <div id="middle">   
+  </div>
+  <div id="header_bottom">
+  <div id="title">
+     <h1 id="sitename"><a href="/" title="Back to Frontpage">{{ site.title }}</a></h1>
+     <span id="subtitle">{{ site.subtitle }}</span>
+  </div>
+   </div>
+</div>
+<div id="main">
+<div id="main_left">
+  <div id="content">
+         {{ content_for_layout }}
+  </div>
+</div>
+<div id="main_right">
+ <div id="sidebar_container">
+ <div id="search-results"></div>     	
+ <div id="sidebar">
+	<div class="sidebar-node">     
+<h2>syndicate</h2>
+          <div id="syndicate">
+            <ul>
+                <li><a href="/xml/rss20/feed.xml" title="Articles feed">Articles</a></li>
+            </ul>
+          </div>
+  		</div>
+  </div>
+</div>
+  
+  
+</div>  
+<div id="footer">
+        <a href="http://validator.w3.org/check?uri=referer">Valid XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a>
+  </div>
+</body>
+</html>

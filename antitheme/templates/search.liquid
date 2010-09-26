@@ -1,0 +1,6 @@
+<h2>Search Results for "{{ search_string}}"</h2>
+<ul>
+{% for article in articles %}
+  <li>{{ article | link_to_article }}</li>
+{% endfor %}
+</ul>

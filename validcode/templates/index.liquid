@@ -1,0 +1,6 @@
+<p>index</p>
+
+{% for article in articles %}
+  <p>{{ article | link_to_article }}</p>
+  {{ article.body }}
+{% endfor %}
